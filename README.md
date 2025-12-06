@@ -50,7 +50,7 @@ Campus Connect helps students and staff report accessibility issues in real time
 ---
 
 ## 📁 Folder Structure
-
+```
 campusconnect/
 │── public/
 │── src/
@@ -69,7 +69,7 @@ campusconnect/
 │── package.json
 │── vite.config.js
 
-
+```
 ---
 
 ## ⚙️ Setup & Installation
