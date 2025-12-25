@@ -1,81 +1,40 @@
-# 🌐 Campus Connect  
-A smart and interactive campus navigation and accessibility reporting system built using **React**, **Firebase**, and **Google Maps API**.  
-Campus Connect helps students and staff report accessibility issues in real time, navigate the campus efficiently, and assists administrators in improving campus infrastructure.
+# Campus Connect
+
+A smart and interactive campus navigation and accessibility reporting system built using **React**, **Vite**, **Supabase**, **Tailwind CSS**, and **Google Maps API**.
+
+Campus Connect helps students and staff:
+- Report accessibility and infrastructure issues
+- Navigate the campus efficiently
+- Provide real-time visibility for administrators
 
 ---
 
 ## 🚀 Features
 
-### 🔹 Real-time Issue Reporting
-- Report issues like lift outages, blocked ramps, noise disturbances, safety hazards, etc.
-- Double-click or long-press the map to select a location.
-- Modal-based reporting with issue type & description.
-
-### 🔹 Live Issue Map
-- Issues update instantly using **Firestore realtime sync**.
-- Emoji-based markers for visual clarity.
-- InfoWindow shows issue details, reporter, and timestamp.
-
-### 🔹 Admin Controls
-- Admin user can delete reported issues.
-- Ensures clean and manageable issue status.
-
-### 🔹 Campus Navigation
-- Route guidance between key campus locations.
-- Uses Google Directions API for walking paths.
-- Map type switching: Roadmap, Satellite, Terrain.
-
-### 🔹 User-Friendly Utilities
-- “My Location” button for instant centering.
-- Filters for Lift, Ramp, Noise, etc.
-- Fully responsive UI with long-press mobile support.
+- Interactive campus map
+- Issue reporting with file upload
+- Issue dashboard and tracking
+- Supabase backend (database + storage)
+- Clean UI using Tailwind CSS
 
 ---
 
-## 🛠️ Tech Stack
+## 📌 Prerequisites
 
-### Frontend
-- React + Vite  
-- Tailwind CSS  
-- Lucide Icons  
+Before running this project, make sure you have:
 
-### Backend / Cloud
-- Firebase Firestore  
-- Firebase Authentication  
-
-### APIs
-- Google Maps JavaScript API  
-- Google Directions API  
+- Node.js (v14 or newer)
+- npm (comes with Node)
+- A Supabase account + project
+- A Google Maps API key
 
 ---
 
-## 📁 Folder Structure
-```
-campusconnect/
-│── public/
-│── src/
-│ ├── components/
-│ │ ├── MapContainer.jsx
-│ │ ├── Login.jsx
-│ │ ├── ReportIssueModal.tsx
-│ │ └── ui/ (custom UI components)
-│ ├── lib/
-│ │ ├── firebase.js
-│ │ └── utils.ts
-│ ├── assets/
-│ ├── App.jsx
-│ ├── main.jsx
-│── .env
-│── package.json
-│── vite.config.js
-
-```
----
-
-## ⚙️ Setup & Installation
+## 📥 Installation
 
 ### 1️⃣ Clone the repository
-```bash
+
+```
 git clone https://github.com/Kamal-Raj-A/mini_project_R2W1.git
 cd mini_project_R2W1
 ```
@@ -85,77 +44,88 @@ cd mini_project_R2W1
 npm install
 ```
 
+### 🔐 Environment Variables
 
-### 3️⃣ Create a .env file
+Create a file called .env.local in the root folder:
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+```
 
-Add the following environment variables:
+You can find your Supabase keys here:
 
-VITE_GOOGLE_MAPS_API_KEY=your_api_key_here
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_domain
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
+Supabase → Settings → API
 
-### 4️⃣ Run the project locally:
+### 🗄️ Database Setup (Supabase)
+
+Run the SQL files inside:
+```
+supabase/migrations/
+```
+
+Paste each file into the Supabase SQL Editor and execute.
+
+This will create:
+
+Issues table
+
+Policies
+
+Storage bucket for images
+
+### ▶️ Running the Project
+
+Start development server:
 ```
 npm run dev
 ```
 
-### 5️⃣ Build for production
+Then open:
+```
+http://localhost:5173
+```
+
+### 📦 Build for Production
 ```
 npm run build
+npm run preview
 ```
 
-### 🌍 Deployment
+### 🧩 Project Structure
+```
+src/
+ ├── components/        # UI components
+ ├── data/              # Static campus data
+ ├── lib/               # Supabase config + helpers
+ ├── main.tsx
+ └── App.tsx
 
-✅ Vercel
+supabase/
+ └── migrations/        # Database SQL scripts
+```
 
-Import GitHub repo
+### 🌱 Tech Stack
 
-Add environment variables
+React + TypeScript
 
-Deploy automatically
+Vite
 
-✅ Netlify
+Supabase
 
-Build: npm run build
-Publish: dist
+Tailwind CSS
 
-### 🧪 Test Cases
+Google Maps API
 
-Issue reporting workflow
+### ⚠️ Notes
 
-Live sync with Firestore
+Do NOT commit your .env.local file
 
-Admin deletion
+Google Maps key must be restricted
 
-Navigation routing tests
+Supabase database rules should be configured carefully
 
-Map type switching
+### 📜 License
 
-Long-press detection tests
-
-### 🔮 Future Enhancements
-
-AI-based automatic issue classification
-
-Photo upload with ML-based issue detection
-
-Issue resolution status tracking
-
-Indoor navigation (WiFi/Bluetooth beacons)
-
-Voice-activated reporting for accessibility
-
-Heatmap of frequently reported areas
-
-### 🏆 Conclusion
-
-Campus Connect delivers a scalable, user-friendly, and impactful solution for enhancing campus accessibility and navigation. By integrating real-time reporting, map-based visualization, and smart navigation tools, it improves safety, efficiency, and inclusivity across the campus environment.
-
-### 👨‍💻 Authors
-
-Kamal Raj
-Gmail : kamalraj3106@gmail.com
+This project is licensed under GPL-3.0.
+See the LICENSE file for details.
